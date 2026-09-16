@@ -1,0 +1,35 @@
+Design Memo: Custom Linked List Waitlist Manager
+
+How does your list work?
+The waitlist is built as a singly linked list. Each customer is stored in a
+Node object holding two things: the customer's name and a `next` reference
+pointing to the following node. The LinkedList class doesn't store customers
+directly; it only keeps a `head` reference to the first node. From there,
+every operation walks the chain one `next` pointer at a time. Adding to the
+front is O(1): a new node's `next` is set to the current head, and the list's
+`head` is reassigned to the new node. Adding to the end requires walking the
+whole list until a node with `next == None` is found, then linking the new
+node there. Removing a customer walks the list while tracking the previous
+node, so that when a match is found, the previous node's `next` can be
+rewired to skip over (and effectively delete) the matched node -- with a
+special case when the match is the head itself.
+
+What role does the head play?
+The head is the list's only entry point. Without it, none of the nodes would
+be reachable, even though they still technically exist in memory. Every
+traversal, insertion, or deletion starts by asking "what does head point to?"
+Losing or mismanaging the head reference (for example, forgetting to update
+it when removing the first node) effectively breaks the whole structure,
+even if the rest of the nodes are untouched.
+
+When might a real engineer need a custom list like this?
+Built-in lists are great for general use, but they don't give you control
+over how insertion, ordering, and removal are implemented, which matters
+when business rules don't match default behavior. A ticketing waitlist is a
+good example: VIPs need constant-time front insertion, general customers
+join at the end, and support staff need to pull a specific person out of the
+middle without shifting or copying the rest of the list. A custom linked
+list makes these operations explicit and efficient, and it's also the
+foundation for more specialized structures (queues, LRU caches, undo
+history) where engineers need precise control over how data is linked and
+traversed rather than relying on a general-purpose container.
