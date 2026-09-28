@@ -1,0 +1,70 @@
+/* ===== TAG SELECTORS ===== */
+
+/* Page-wide background, font, and text size */
+body {
+  background-color: #f4f1ec;               /* soft off-white background */
+  font-family: Arial, Helvetica, sans-serif; /* clean, readable font */
+  font-size: 18px;                          /* comfortable reading size */
+  line-height: 1.6;                         /* space between lines */
+  color: #222;                              /* dark gray text */
+  margin: 0;                                /* remove browser default margin */
+}
+
+/* Center all main headings */
+h1,
+h2 {
+  text-align: center;
+}
+
+/* Keep paragraphs readable and left-aligned */
+p {
+  text-align: left;
+}
+
+/* Keep images from overflowing their containers */
+img {
+  max-width: 100%;
+}
+/* ===== ID SELECTORS ===== */
+
+/* Header: dark background so it stands out from the page */
+#site-header {
+  background-color: #1e1e2f;
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Style the nav links inside the header */
+#site-header a {
+  color: #f5c542;          /* gold links */
+  margin: 0 10px;          /* space between links */
+  text-decoration: none;   /* remove underline */
+}
+
+/* Footer: a different color from the header, with small centered text */
+#site-footer {
+  background-color: #444;
+  color: #ddd;
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+  margin-top: 40px;        /* space above the footer */
+}
+
+/* ===== CLASS SELECTORS ===== */
+
+/* Card: white box with rounded corners and a shadow */
+.card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Section titles: accent color with an underline bar */
+.section-title {
+  color: #1e1e2f;
+  border-bottom: 3px solid #f5c542;
+  padding-bottom: 8px;
+}
