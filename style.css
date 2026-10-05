@@ -12,7 +12,8 @@ body {
 
 /* Center all main headings */
 h1,
-h2 {
+h2,
+h3 {
   text-align: center;
 }
 
@@ -42,6 +43,18 @@ img {
   text-decoration: none;   /* remove underline */
 }
 
+/* Underline a nav link on hover or keyboard focus so it is not color-only */
+#site-header a:hover,
+#site-header a:focus {
+  text-decoration: underline;
+}
+
+/* Clear focus outline for keyboard users (gold on the dark header) */
+#site-header a:focus-visible {
+  outline: 3px solid #f5c542;
+  outline-offset: 3px;
+}
+
 /* Footer: a different color from the header, with small centered text */
 #site-footer {
   background-color: #444;
@@ -67,4 +80,74 @@ img {
   color: #1e1e2f;
   border-bottom: 3px solid #f5c542;
   padding-bottom: 8px;
+}
+
+/* Flex container: puts the two cards side by side with space between */
+.flex-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;          /* center the container on wide screens */
+}
+
+/* Each card takes an equal share of the row */
+.flex-container .card {
+  flex: 1;
+}
+
+/* Skip link: hidden off-screen until a keyboard user tabs to it */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background-color: #ffffff;
+  color: #1e1e2f;
+  padding: 10px 15px;
+}
+
+.skip-link:focus {
+  left: 10px;
+  top: 10px;
+  outline: 3px solid #1e1e2f;
+}
+
+/* ===== MEDIA QUERY ===== */
+
+/* Tablets and phones (768px wide or less): stack the cards and tighten spacing */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;         /* slightly smaller text for small screens */
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  #site-header {
+    padding: 15px 10px;
+  }
+
+  /* Give nav links more room so they are easy to tap */
+  #site-header a {
+    display: inline-block;
+    margin: 5px 8px;
+    padding: 8px 4px;
+  }
+
+  /* Stack the cards in one column instead of side by side */
+  .flex-container {
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+  }
+
+  .card {
+    padding: 15px;
+  }
+
+  #site-footer {
+    margin-top: 20px;
+    padding: 10px;
+  }
 }
