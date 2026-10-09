@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Album cover">
+  <rect width="400" height="400" fill="#1e1e2f"/>
+  <circle cx="200" cy="200" r="140" fill="#2c2c44"/>
+  <circle cx="200" cy="200" r="100" fill="none" stroke="#f5c542" stroke-width="2"/>
+  <circle cx="200" cy="200" r="70" fill="none" stroke="#f5c542" stroke-width="2"/>
+  <circle cx="200" cy="200" r="40" fill="#f5c542"/>
+  <circle cx="200" cy="200" r="8" fill="#1e1e2f"/>
+</svg>

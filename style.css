@@ -1,77 +1,50 @@
+/* Bootstrap handles the layout (container, grid, spacing, buttons).
+   This file holds the custom look: colors, fonts, borders, backgrounds. */
+
 /* ===== TAG SELECTORS ===== */
 
 /* Page-wide background, font, and text size */
 body {
-  background-color: #f4f1ec;               /* soft off-white background */
+  background-color: #f4f1ec;                 /* soft off-white background */
   font-family: Arial, Helvetica, sans-serif; /* clean, readable font */
-  font-size: 18px;                          /* comfortable reading size */
-  line-height: 1.6;                         /* space between lines */
-  color: #222;                              /* dark gray text */
-  margin: 0;                                /* remove browser default margin */
+  font-size: 18px;                           /* comfortable reading size */
+  line-height: 1.6;                          /* space between lines */
+  color: #222;                               /* dark gray text */
 }
 
-/* Center all main headings */
+/* Center the headings and give them a custom serif font */
 h1,
 h2,
 h3 {
   text-align: center;
+  font-family: Georgia, "Times New Roman", serif;
 }
 
-/* Keep paragraphs readable and left-aligned */
-p {
-  text-align: left;
-}
-
-/* Keep images from overflowing their containers */
-img {
-  max-width: 100%;
-}
 /* ===== ID SELECTORS ===== */
 
 /* Header: dark background so it stands out from the page */
 #site-header {
   background-color: #1e1e2f;
   color: #ffffff;
-  padding: 20px;
-  text-align: center;
+  border-bottom: 4px solid #f5c542;          /* gold accent bar */
 }
 
-/* Style the nav links inside the header */
-#site-header a {
-  color: #f5c542;          /* gold links */
-  margin: 0 10px;          /* space between links */
-  text-decoration: none;   /* remove underline */
-}
-
-/* Underline a nav link on hover or keyboard focus so it is not color-only */
-#site-header a:hover,
-#site-header a:focus {
-  text-decoration: underline;
-}
-
-/* Clear focus outline for keyboard users (gold on the dark header) */
-#site-header a:focus-visible {
-  outline: 3px solid #f5c542;
-  outline-offset: 3px;
-}
-
-/* Footer: a different color from the header, with small centered text */
+/* Footer: a different color from the header, with small text */
 #site-footer {
   background-color: #444;
   color: #ddd;
-  text-align: center;
-  padding: 15px;
   font-size: 14px;
-  margin-top: 40px;        /* space above the footer */
 }
 
 /* ===== CLASS SELECTORS ===== */
 
-/* Card: white box with rounded corners and a shadow */
-.card {
+/* Music card: white box with rounded corners, a shadow, and a gold top edge.
+   Named "music-card" so it does not clash with Bootstrap's own .card class. */
+.music-card {
   background-color: #ffffff;
   padding: 20px;
   border-radius: 10px;
+  border-top: 4px solid #f5c542;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -82,72 +55,44 @@ img {
   padding-bottom: 8px;
 }
 
-/* Flex container: puts the two cards side by side with space between */
-.flex-container {
-  display: flex;
-  gap: 20px;
-  padding: 20px;
-  max-width: 1000px;
-  margin: 0 auto;          /* center the container on wide screens */
-}
-
-/* Each card takes an equal share of the row */
-.flex-container .card {
-  flex: 1;
-}
-
-/* Skip link: hidden off-screen until a keyboard user tabs to it */
-.skip-link {
-  position: absolute;
-  left: -9999px;
-  top: 0;
-  background-color: #ffffff;
+/* Custom gold button, used together with Bootstrap's .btn class */
+.btn-gold {
+  background-color: #f5c542;
+  border-color: #f5c542;
   color: #1e1e2f;
-  padding: 10px 15px;
+  font-weight: bold;
 }
 
-.skip-link:focus {
-  left: 10px;
-  top: 10px;
-  outline: 3px solid #1e1e2f;
+.btn-gold:hover,
+.btn-gold:focus {
+  background-color: #1e1e2f;
+  border-color: #1e1e2f;
+  color: #f5c542;
 }
 
 /* ===== MEDIA QUERY ===== */
 
-/* Tablets and phones (768px wide or less): stack the cards and tighten spacing */
-@media (max-width: 768px) {
+/* Phones (767px wide or less): Bootstrap stacks the columns,
+   so this only tightens the text and card padding */
+@media (max-width: 767.98px) {
   body {
-    font-size: 16px;         /* slightly smaller text for small screens */
+    font-size: 16px;
   }
 
   h1 {
     font-size: 1.6rem;
   }
 
-  #site-header {
-    padding: 15px 10px;
-  }
-
-  /* Give nav links more room so they are easy to tap */
-  #site-header a {
-    display: inline-block;
-    margin: 5px 8px;
-    padding: 8px 4px;
-  }
-
-  /* Stack the cards in one column instead of side by side */
-  .flex-container {
-    flex-direction: column;
-    gap: 15px;
-    padding: 10px;
-  }
-
-  .card {
+  .music-card {
     padding: 15px;
   }
-
-  #site-footer {
-    margin-top: 20px;
-    padding: 10px;
-  }
 }
+
+/* ===== REMOVED: now handled by Bootstrap =====
+   body margin reset          -> Bootstrap's built-in reset
+   img max-width              -> img-fluid
+   #site-header padding/align -> py-4 text-center
+   #site-header a link styles -> btn btn-outline-warning
+   .flex-container (Flexbox)  -> container, row, col-md-6
+   #site-footer padding/align -> text-center py-3 mt-5
+*/
